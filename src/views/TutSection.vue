@@ -1,5 +1,5 @@
 <template lang="pug">
-.page
+.page.page-tut
   .progressBar(:style="{width: (percentage+'vw'), 'background-color': percentage>=100?'#f91854':'black'}"
                 ) 
     span Basic Shapes - Points, Lines and Shapes 
@@ -52,8 +52,21 @@
       .col-sm-6
         codearea(v-model="code3")
       .col-sm-6
-        p There are a lot of useful shape functions in p5.js, e.g. rect, ellipse, line... etc.
-          | things in "setup" function will be excuted once since the sketch start, if we want to make animations or any movement in the sketch, which need to draw a tons of new image as the time progressing, we will have to put our drawing codes into the drawing function, which will be run again and again for about 30 times a second! it's like the clock-erasing artwork in the airport, or you can think it like stop motion animations- which is made by lots of frames play in a high speed which made an illusion of continuous animation.
+        h4 How to draw some simple shapes?
+        p There are a lot of useful shape functions in p5.js, e.g. rect, ellipse, triangle, circle, line... etc. Every shape function has it's own parameters to pass, don't panic. Whenever you need to check what you chould pass to a drawing method, visit <a href="https://p5js.org/reference/">the p5.js document </a> type the command in "Search in API" box, then you will geta very detailed parameters list of what you should pass when using this command.
+      
+        h4 Basics of moving image
+        p things in "setup" function will be excuted once since the sketch start, if we want to make animations or any movement in the sketch, which need to draw a tons of new image as the time progressing, we will have to put our drawing codes into the drawing function. Then it will be run again and again for about 30 times a second! It's like the clock-erasing artwork in the airport, or you can think it like stop motion animations- which is made by lots of frames play in a high speed which made an illusion of continuous animation.
+        pre
+          | function setup(){
+          |   // things will run once 
+          | }
+        pre
+          | function draw(){
+          |   // things will run 30 times a second 
+          | }
+        
+          
     section.row
       .col-sm-12
         h3 Colorify! fill and stroke
@@ -69,6 +82,12 @@
         p Mouse positions can get by also variales - mouseX and mouseY
         pre
           | ellipse(mouseX,mouseY,60,60)
+        p The magic of coding is not just like this, if you map the mouseX to one of the component of a <b>color(r,g,b)</b>, you can get a color-changing circle based on the position your mouse at!
+        pre
+          | fill("red")
+          | ellipse(mouseX,255,255);
+        p Try - what will happen if you use mouseX as the radius of the ellipse? Practice in the left side and play with the code by yourself!
+
         
     section.row
       .col-sm-12
@@ -126,7 +145,6 @@ code3:
 }
 function draw(){
   //Try to uncomment the following line
-  //draw function will run 30 times a second
   // background(0)
   text('Move your mouse around',20,20);
   ellipse( mouseX, mouseY,50,50);
@@ -139,15 +157,13 @@ code4:
 function draw(){
   //Try to draw background with transparency!
   background(0);
-  //Comment the previous line and uncomment next line
-  //background(0,5); 
 
   //set the paint fill to orange, then draw the shape
   fill('orange');
   rect(width/2,height/2,70,70);
 
   //set stroke weight then draw the circle
-  fill('red');
+  fill(mouseX,mouseY,0);
   stroke('white');
   strokeWeight(5);
   ellipse( mouseX, mouseY,60,60);
@@ -211,27 +227,30 @@ percentage: 0
 </script>
 
 <style scoped lang="sass">
-h1
-  font-size: 3rem
-  font-weight: 800
-h3
-  font-size: 2rem
-  margin-bottom: 30px
-  margin-top: 50px
-pre
-  background-color: #f4f4f4
-  padding: 10px
-.progressBar
-  position: fixed
-  color: white
-  background-color: black
-  padding: 5px
-  padding-left: 10px
-  white-space: nowrap
-  bottom: 0px
-  left: 0px
-  z-index: 10
-  font-size: 0.8rem
-  overflow: hidden
+.page-tut
+  h1
+    font-size: 3rem
+    font-weight: 800
+  h3
+    font-size: 2rem
+    margin-bottom: 30px
+    margin-top: 50px
+  p
+    line-height: 1.7
+  pre
+    background-color: #f4f4f4
+    padding: 10px
+  .progressBar
+    position: fixed
+    color: white
+    background-color: black
+    padding: 5px
+    padding-left: 10px
+    white-space: nowrap
+    bottom: 0px
+    left: 0px
+    z-index: 10
+    font-size: 0.8rem
+    overflow: hidden
 </style>
 

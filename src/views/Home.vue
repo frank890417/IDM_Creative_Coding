@@ -6,6 +6,7 @@
         h1.text-center.font-weight-bold.pt-3.pb-3(style="background-color: black; color: white;") NYU - IDM Creative Coding
         label Beta version @ Che-Yu Wu <br> cyw345@nyu.edu
         //- img(src="p5js.svg" style="width: 150px")
+  .container-fluid
     div.row( v-for="(section,sid) in sections")
       router-link.inner_container(:to="`/section/${sid+1}`")
         .row.row-section
@@ -195,5 +196,6 @@ h2
   font-weight: 900
 .inner_container
   width: 100%
+
 </style>
 
