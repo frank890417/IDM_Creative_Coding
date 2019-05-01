@@ -13,8 +13,8 @@
 html,body
   font-family: 'Source Sans Pro'
 .page
-  padding-top: 50px
-  padding-bottom: 50px
+  padding-top: 40px
+  padding-bottom: 40px
   background-color: #fff
 h2
   line-height: 2

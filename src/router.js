@@ -15,7 +15,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/section/1',
+      path: '/section/3',
       name: 'tutsection',
       component: TutSection
 

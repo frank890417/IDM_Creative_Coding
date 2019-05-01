@@ -20,14 +20,30 @@
       .col-sm-6
         codearea(v-model="code1")
       .col-sm-6
-        h3 Drawing Is easy
+        h4 Drawing Is easy
         p A glance into our first p5.js program, lets start with drawing a simple circle in code!! 
-          | with program, you are like talking with a studpid painter who act exact the same command you tell him, so, you can tell him to draw a circle with orange, just say "fill('orange')", and then, write ellipse with position and size. You get a circle!
+        p with program, you are like talking with a painter who act exact the same command you tell him, so, you can tell him to draw a circle with orange, just say "fill('orange')", and then, write ellipse with position and size. You get a circle!
+        p There are three basic command to remember, the first one is createCanvas, which create an area for us to draw on
+        pre
+          | createCanvas( SIZEX , SIZEY );
+        p Coding is just like talking, but with a little stricter grammar constraint. For example, to run a command you can just type background, then pass what color you want to fill in a pair of parenthesis () right after that, if the data we passing are not any of the standard command, we have to add a pair of double quote to tell the computer it is some data, not a command to run!
+        pre
+          | background('black');
+          | fill('orange');
+
+        
     section.row
       .col-sm-12
         h3 Draw a Point and a Line
       .col-sm-6
         codearea(v-model="code2")
+      .col-sm-6
+        p Shapes can break into basic units - lines and points, for each point, we need to provide the x and y position, which means how far is it away from the top of the canvas and also from the left side. 
+        pre
+          | point(x,y)
+        p Obviously, extended from a point, when we want to draw a line, which needs two points in total, we have to pass four values, x1,y1,x2,y2 to the "line" methods in p5js
+        pre
+          | line (x1,x2,y1,y2)
       .col-sm-6
     section.row
       .col-sm-12
@@ -43,6 +59,17 @@
         h3 Colorify! fill and stroke
       .col-sm-6
         codearea(v-model="code4")
+      .col-sm-6
+        p When we are drawing shapes, there are two component that we can modify - stroke and the fill color. In p5.js, we excute the codes line-by-line, which means if we want to have a red circle, we set the fill to red first - which is the default color of the next shape we draw. Then we draw the circle. the color will remain effecting the shapes we draw in the following lines till we change it by fill function again.
+        p There're also some useful keyword that can get specific data in p5.js directly, e.g. if we want to get the width of the canvas, we can simple type width, so does the height. To extend, drawing a circle in the middle of the canvas is no longer hard to caculate something like 1000/2 by ourself, but width/2 will caculate the center point what ever size we specified when we initialized the canvas.
+        pre
+          | fill("red")
+          | ellipse(50,50,60,60)
+          | ellipse(width/2,height/2,60,60)
+        p Mouse positions can get by also variales - mouseX and mouseY
+        pre
+          | ellipse(mouseX,mouseY,60,60)
+        
     section.row
       .col-sm-12
         h3 Draw crazy shapes!!
@@ -63,8 +90,12 @@
         codearea(v-model="code7")
     section.row
       .col-sm-12
-        h3 Exercise
-        
+        h3 Exercise - recreate an art
+    section.row
+      .col-sm-12
+        router-link.btn.btn-light(to="/") 
+          i.fa.fa-angle-left
+          span &nbsp;&nbsp;back to the main menu
 </template>
 <script>
 export default {
@@ -97,6 +128,7 @@ function draw(){
   //Try to uncomment the following line
   //draw function will run 30 times a second
   // background(0)
+  text('Move your mouse around',20,20);
   ellipse( mouseX, mouseY,50,50);
 }
 `,
@@ -105,7 +137,10 @@ code4:
   createCanvas( windowWidth,windowHeight);
 }
 function draw(){
-  background(0)
+  //Try to draw background with transparency!
+  background(0);
+  //Comment the previous line and uncomment next line
+  //background(0,5); 
 
   //set the paint fill to orange, then draw the shape
   fill('orange');
@@ -176,11 +211,16 @@ percentage: 0
 </script>
 
 <style scoped lang="sass">
+h1
+  font-size: 3rem
+  font-weight: 800
 h3
   font-size: 2rem
   margin-bottom: 30px
   margin-top: 50px
-
+pre
+  background-color: #f4f4f4
+  padding: 10px
 .progressBar
   position: fixed
   color: white
