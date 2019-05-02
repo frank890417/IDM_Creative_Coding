@@ -73,7 +73,7 @@ function draw(){
         },
         {
           title: "Start with p5.js",
-          content: "Writing Codes on your broswer and experience the magic!",
+          content: "Writing Codes on your broswer with Open Processing and experience the magic!",
           demoCode:`
 var cc
 function setup(){
@@ -133,7 +133,37 @@ function draw(){
 `
         },
         {
-          title: "Work smarter 1- Variables"
+          title: "Work smarter 1- Variables",
+          content: "The art of reusing and storing numbers",
+          demoCode: `
+var value = 50
+function setup(){
+  createCanvas(windowWidth,windowHeight)
+}
+function draw(){
+  noStroke()
+  value+=1
+  background("#ff7f00")
+  fill(255)
+  textSize(100)
+  text(value,width-300,height-100)
+  push()
+    stroke(255)
+    strokeWeight(2)
+    line(20,70,20,90)
+    line(value+20,70,value+20,90)
+    line(20,80,20+value,80)
+    
+  pop()
+  rect(20,100,value,50)
+  fill(255,40,40)
+  rect(20,100,50,value)
+  if (value>width-30){
+    value=0
+  }
+
+}
+          `
         },
         {
           title: "Work smarter 2- Condition and Loops"
@@ -146,6 +176,9 @@ function draw(){
         },
         {
           title: "Working with Multimedia - Video / Image / Sound "
+        },
+        {
+          title: "Advanced drawing - Canvas Translation"
         },
         {
           title: "Pack the actions - Functions"

@@ -3,7 +3,7 @@
   .progressBar(:style="{width: (percentage+'vw'), 'background-color': percentage>=100?'#f91854':'black'}"
                 ) 
     span Basic Shapes - Points, Lines and Shapes 
-    span(v-if="percentage<100") {{ parseInt(percentage) }}%
+    span(v-if="percentage<100")  {{ parseInt(percentage) }}%
     span(v-else)
       i.fa.fa-check
   .container
@@ -12,7 +12,7 @@
         router-link.btn.btn-light(to="/") 
           i.fa.fa-angle-left
           span &nbsp;&nbsp;back to the main menu
-        h1.mt-5 The Begin Point - What is Creative Coding
+        h1.mt-5 Basic Shapes - Points, Lines and Shapes
         p Writing Codes on your broswer and experience the magic!
     section.row.mt-5
       .col-sm-12
@@ -157,16 +157,17 @@ code4:
 function draw(){
   //Try to draw background with transparency!
   background(0);
+  // background(0,20);
 
   //set the paint fill to orange, then draw the shape
   fill('orange');
-  rect(width/2,height/2,70,70);
+  rect(width/2,height/2,100,100);
 
   //set stroke weight then draw the circle
   fill(mouseX,mouseY,0);
   stroke('white');
   strokeWeight(5);
-  ellipse( mouseX, mouseY,60,60);
+  ellipse( mouseX, mouseY,80,80);
 }
 `,
 code5:  
@@ -225,32 +226,4 @@ percentage: 0
     }
 }
 </script>
-
-<style scoped lang="sass">
-.page-tut
-  h1
-    font-size: 3rem
-    font-weight: 800
-  h3
-    font-size: 2rem
-    margin-bottom: 30px
-    margin-top: 50px
-  p
-    line-height: 1.7
-  pre
-    background-color: #f4f4f4
-    padding: 10px
-  .progressBar
-    position: fixed
-    color: white
-    background-color: black
-    padding: 5px
-    padding-left: 10px
-    white-space: nowrap
-    bottom: 0px
-    left: 0px
-    z-index: 10
-    font-size: 0.8rem
-    overflow: hidden
-</style>
 
