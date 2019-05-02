@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: '/IDM_Creative_Coding/dist/'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/IDM_Creative_Coding/dist/'
+  : '/'
 }
