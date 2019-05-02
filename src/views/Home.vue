@@ -1,5 +1,5 @@
 <template lang="pug">
-.page
+.page.page-home
   .container-fluid
     .row
       .col-sm-12
@@ -213,22 +213,23 @@ function draw(){
 }
 </script>
 <style lang="sass">
-.number
-  font-size: 5rem
-.row-section
-  padding: 30px
-img
-  background-color: #eee
-  border: solid 1px #555
-  width: 100%
-  min-height: 300px
-h2
-  text-decoration: underline
-  background: linear-gradient(0deg,0% white, 100% black)
-  line-height: 2
-  font-weight: 900
-.inner_container
-  width: 100%
+.page-home
+  .number
+    font-size: 5rem
+  .row-section
+    padding: 30px
+  img
+    background-color: #eee
+    border: solid 1px #555
+    width: 100%
+    min-height: 300px
+  h2
+    text-decoration: underline
+    background: linear-gradient(0deg,0% white, 100% black)
+    line-height: 2
+    font-weight: 900
+  .inner_container
+    width: 100%
 
 </style>
 

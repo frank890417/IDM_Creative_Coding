@@ -27,6 +27,8 @@ a
 section
   margin-top: 50px
 .page-tut
+  img
+    max-width: 100%
   h1
     font-size: 3rem
     font-weight: 800
@@ -37,7 +39,7 @@ section
     font-weight: 700
   p
     line-height: 1.7
-  pre
+  [class^="col"]>pre
     background-color: #f4f4f4
     padding: 10px
   .progressBar
